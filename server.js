@@ -7,11 +7,18 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const fileupload = require ('express-fileupload');
 
+
+const apiRoutes = require('./src/routes');
+
+mongoose.set('strictQuery', false);
+//mongoose.set('useFindAndModify', false);
+
 //conexão com banco
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
-    useFindAndModify: false,
+   // useFindAndModify: false,
     useUnifiedTopology: true
+    
 });
 
 
@@ -19,6 +26,7 @@ mongoose.Promise = global.Promise;
 mongoose.connection.on('error',(error) =>{
     console.log("erro: ", error.message);
 });
+
 
 
 
@@ -31,9 +39,7 @@ server.use(fileupload());
 
 server.use(express.static(__dirname+'/public'));
 
-server.get('/ping', (req, res) => {
-    res.json({pong: true});
-});
+server.use('/', apiRoutes);
 
 // server.use(express.static(path.join(__dirname, '../public')));
 // server.use(express.urlencoded({ extended: true }));
