@@ -17,5 +17,5 @@ const modelName =  'User';
 if(mongoose.connection && mongoose.connection.models[modelName]) {
     module.exports = mongoose.connection.models[modelName];
 } else {
-    model.exports =  mongoose.model(modelName, modelSchema);
+    module.exports =  mongoose.model(modelName, modelSchema);
 }

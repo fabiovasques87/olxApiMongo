@@ -39,6 +39,7 @@ server.use(fileupload());
 
 server.use(express.static(__dirname+'/public'));
 
+
 server.use('/', apiRoutes);
 
 // server.use(express.static(path.join(__dirname, '../public')));
