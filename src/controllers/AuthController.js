@@ -9,6 +9,42 @@ const State = require('../models/State');
 
 module.exports = {
     signin: async (req, res) => {
+        //processo de login:
+        const errors = validationResult(req);
+
+        if(!errors.isEmpty()){
+            //se não está vazio, quer dizer que deu erro...
+            res.json({error: errors.mapped()});
+            return;
+        }
+
+        const data = matchedData(req);
+
+        //verificar se o usuário quer irá faze o login existe de fato no banco...
+        //válida o e-mail
+        const user = await User.findOne({email: data.email});
+
+        if(!user){
+            res.json({error: 'E-mail ou senha errados!'});
+            return;
+        }
+
+        //válida a senha, se a senha que está sendo digitada é mesma que foi criptografada no banco
+        const match = await bcrypt.compare(data.password, user.passwordHash);
+        //Se foi inserida uma senha que não confere...
+        if(!match){
+            res.json({error: 'E-mail ou senha errados!'});
+            return;
+        }
+
+        //gerar um token novo e salvar para esse usuário...
+        const payload = (Date.now() + Math.random()).toString();
+        const token = await bcrypt.hash(payload, 10);
+
+        user.token = token;
+        await user.save();
+
+        res.json({token, email: data.email});
 
     },
     signup: async (req, res) => {
@@ -64,7 +100,7 @@ module.exports = {
         const newUser = new User({
             name: data.name,
             email: data.email,
-            password: passwordHash,
+            passwordHash,
             token,
             state: data.state
         });

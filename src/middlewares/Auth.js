@@ -28,7 +28,7 @@ module.exports ={
 
         const user = await User.findOne({token});
         //verifica se não achou o user...
-        if(!user){
+        if(!User){
             res.json({notallowed: true});
             return;
         }
