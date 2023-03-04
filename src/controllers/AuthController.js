@@ -25,7 +25,7 @@ module.exports = {
         const user = await User.findOne({email: data.email});
 
         if(!user){
-            res.json({error: 'E-mail ou senha errados!'});
+            res.json({error: 'E-mail ou senha incorretos!'});
             return;
         }
 
@@ -33,7 +33,7 @@ module.exports = {
         const match = await bcrypt.compare(data.password, user.passwordHash);
         //Se foi inserida uma senha que não confere...
         if(!match){
-            res.json({error: 'E-mail ou senha errados!'});
+            res.json({error: 'E-mail ou senha incorretos!'});
             return;
         }
 

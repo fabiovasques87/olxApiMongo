@@ -6,6 +6,7 @@ const jimp = require('jimp');
 const Category = require('../models/Category');
 const User = require('../models/Category');
 const Ad = require ('../models/Ad');
+const StateModel = require ('../models/State');
 
 //função para manipular a imagem...
 const addImage = async (Buffer) =>{
@@ -105,7 +106,68 @@ module.exports = {
         res.json({id: info._id});
     },
     getList: async (req, res) => {
+        //definir se a ordenação vai ser crescente ou ascendente
+        let {sort = 'asc', offset = 0, limit = 8, q, cat, state } = req.query;
+        let filters = {status: true};
+        let total = 0;
+
+        //trabalhando com filtros
+        if(q){
+            filters.title = {'$regex': q,'$options': 'i'}; //primeiro filtro
+        }
+        if(cat){
+            const c = await Category.findOne({slug: cat}).exec(); //segundo filtro, procurar a categoria que o slug for cat
+            if(c){
+                filters.category = c._id.toString();    
+            }
+        }
+
+        if(state){
+            const s = await StateModel.findOne({name: state.toUpperCase()}).exec(); //terceiro filtro
+            //se encontrou estados...
+            if(s){
+                filters.state = s._id.toString();
+            }
+        }
+
+        //sabendo a quantidade total de anuncios
+        const adsTotal = await Ad.find(filters).exec();
+        total = adsTotal.length;
+
+
+        //pegar os anuncios
+        const adsData = await Ad.find(filters)
+            .sort({dateCreated: (sort == 'desc'? -1 : 1 )})
+            .skip(parseInt(offset))     //paginacao...e transforma em inteiro
+            .limit(parseInt(limit))
         
+        .exec(); //pegar do banco os anuncios com sstatus, true
+        let ads = [];
+        for(let i in adsData){
+
+            //montar a imagem padrão
+            let image;
+
+            let defaultImg = adsData[i].images.find(e => e.default);
+            //verificar se existe a imagem padrão
+            if(defaultImg){
+                image = `${process.env.BASE}/media/${defaultImg.url}`;
+            }else{
+                //se não tiver um arquivo padrão...
+                image = `${process.env.BASE}/media/defaul.jpg`;
+            }
+
+            ads.push({
+                //vai adicionar cada um dos itens...
+                id: adsData[i]._id,
+                title:adsData[i].title,
+                price:adsData[i].price,
+                priceNegotiable: adsData[i].priceNegotiable,
+                image
+            });
+        }
+        res.json({ads, total});
+
     },
     getItem: async (req, res) => {
         
