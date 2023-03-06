@@ -108,6 +108,6 @@ module.exports = {
 
         res.json({token});
 
-        res.json({tudocerto: true, data});
+        // res.json({tudocerto: true, data});
     }
 };

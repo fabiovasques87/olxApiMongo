@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "63f9bf67ffca9bccfc450ab1"
+  },
+  "name": "fabio",
+  "email": "fabio@gmail.com",
+  "state": "63f99cd6504216a351019c8c",
+  "passwordHash": "$2b$10$90EOUK/me9tXJlQyQBv4p.DhoXJmuL7fv.UiLpg78gjvOxveeAnuS",
+  "token": "$2b$10$zfErb.Md1HHGdXIULMVxXeVn9cftM9vo9hDOd7v9r2CykFu9lLP4m",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f9c05c537399c6f3f0e73c"
+  },
+  "name": "teste",
+  "email": "teste@gmail.com",
+  "state": "63f99cd6504216a351019c8c",
+  "passwordHash": "$2b$10$4GbRo3U6g2ySItVrgteNOuwR7/NCbrhO/1TNfGbOC7U6OTJX8CGhe",
+  "token": "$2b$10$HQIxwdDxJhH3Ogms/qPil.JsTLK8Ph2HXcbRvBiA.cRpBdwaH.P/2",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f9c548830baaf168f73153"
+  },
+  "name": "teste1",
+  "email": "teste1@hotmail.com",
+  "state": "63f99cd6504216a351019c8c",
+  "passwordHash": "$2b$10$D/U5gJQuskXgNokRENeleeDjzV.LENkqN8wpusNn6pNgP78hLFqWy",
+  "token": "$2b$10$I3ScnBurnnnRWjJeY7Trnuvk94.g5pGgukgIRfemJE16CeA8LysMG",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6402f763a48e86107a4664b5"
+  },
+  "name": "Fábio Geovane Porto Vasques",
+  "email": "fgpvasqu@gmail.com",
+  "state": "63f99cd6504216a351019c8c",
+  "passwordHash": "$2b$10$s3wxyr6EU/O3FmEdiGfPNOnh.eNcbPCeVjbhtjXAnCbebpZQlw8z6",
+  "token": "$2b$10$j08rJ858OwXGCgk2beXxdOPfVq.ohCDnq91uJdWocCHowIYnT8QQe",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6402f8a52e0a4efaa9f1c460"
+  },
+  "name": "testador",
+  "email": "testador@gmail.com",
+  "state": "63f99cef504216a351019c8d",
+  "passwordHash": "$2b$10$Ck5A3X5r.4eWP4aJrSgxB.CDZErjfs4vCHhS16ltA.KvETbBOCLna",
+  "token": "$2b$10$cQTRqKbflETtITfNdX3Ei.yphF1fTJyvQKytCmVtzAOyYBz5a7Qwq",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6402f93dab621de5bf5f4d46"
+  },
+  "name": "testadorzinho",
+  "email": "testadorzinho@gmail.com",
+  "state": "63f99c9a504216a351019c8b",
+  "passwordHash": "$2b$10$9KlpKIwRSpzVdUukXPqec.IRt2geBv77pu.l1yymHRvPMGb8om88a",
+  "token": "$2b$10$KPqOwpPjyWGbl6ko5TF9gOfai2NyUnt1fZabHHXgCziqR2XCJwZW6",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6402fb68ab621de5bf5f4d53"
+  },
+  "name": "fulano123",
+  "email": "fulano123@gmail.com",
+  "state": "63f99cd6504216a351019c8c",
+  "passwordHash": "$2b$10$/SS7HRr2U2Mpm9BUxOpkBubE/5ACsJPVGUUtv/ISE9TBud2oK/jCC",
+  "token": "$2b$10$xEsxQ/xHuNHG74QP2JwO4e7v4QGOb8m9dvJrYdVFQ9K4rUojOCsXK",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6402fd1fab621de5bf5f4d5a"
+  },
+  "name": "Frederico",
+  "email": "frederico@hotmail.com",
+  "state": "63f99cef504216a351019c8d",
+  "passwordHash": "$2b$10$5CkfirdKn3j.4qtpCs4fqOmvi5ixH8dEmKd.3kJOqYj.3Z2SNYpzK",
+  "token": "$2b$10$CS91NUk6EB1lEljgXYweZ.opB6MJWOoDGk.ZY91kGXH5qEVYzATs6",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64041c1529f89efbe400cce0"
+  },
+  "name": "ciclano",
+  "email": "ciclano@gmail.com",
+  "state": "63f99cd6504216a351019c8c",
+  "passwordHash": "$2b$10$PanRataHcPVNpeeXsSQD8uHQ5qjG9PZOwBx4RJBczYYmJOHlxx0vu",
+  "token": "$2b$10$PjCrYSFIl0MCnYDV5wXviuIN2rH5YkzOS6FyNzQeexwVMwAfW70Ua",
+  "__v": 0
+}]

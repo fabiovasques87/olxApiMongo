@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "63fb0a04eead82ca3f3028f1"
+  },
+  "images": [],
+  "status": "true",
+  "dateCreated": {
+    "$date": {
+      "$numberLong": "1677396484923"
+    }
+  },
+  "title": "Ad de teste",
+  "price": 100.35,
+  "priceNegotiable": true,
+  "description": "alguma descricao qualquer",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63fb0d0705f7021de219e217"
+  },
+  "images": [
+    {
+      "url": "8b80091e-999a-4125-8d65-2caeb620f987.jpg",
+      "default": true
+    }
+  ],
+  "status": "true",
+  "dateCreated": {
+    "$date": {
+      "$numberLong": "1677397255845"
+    }
+  },
+  "title": "teste",
+  "price": 250.65,
+  "priceNegotiable": false,
+  "description": "teste desc",
+  "__v": 0
+}]
