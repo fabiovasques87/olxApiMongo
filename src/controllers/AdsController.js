@@ -170,8 +170,52 @@ module.exports = {
 
     },
     getItem: async (req, res) => {
-        
-    },
+        //pode ser que o produto venha so ele, então a opcao other pode nao vir...
+        let {id, other = null} = req.query;
+        if(!id){
+            res.json({erro:'Sem produto'});
+            return; //return para finalizar a execucao
+        }
+        const ad = await Ad.findById(id);
+        //se não encontrou nada...
+        if(!ad){
+            res.json({error: 'Produto inexistente'});
+            return;
+        }
+        //contador de visitas no determinado produto
+        ad.viwes++;
+        await ad.save;
+
+        //pegar as imagens do determinado produto...
+        let images = [];
+        //montar a url completa...
+        for(let i in ad.images){
+            images.push(`${process.env.BASE}/media/${ad.images[i].url}`);
+        }
+
+        let category = await Category.findById(ad.category).exec();
+        let userInfo = await User.findById(ad.idUser).exec();
+        let stateInfo = await StateModel.findById(ad.state).exec();
+
+        //Montar o json de retorno
+        res.json({
+            id: ad._id,
+            title: ad.title,
+            price: ad.price,
+            priceNegotiable: ad.priceNegotiable,
+            description:ad.description,
+            dateCreated: ad.dateCreated,
+            views: ad.views,
+            images,
+            category,
+            userInfo: {
+                name: userInfo.name,
+                email: userInfo.email
+            },
+            stateName: stateInfo.name
+
+        });
+    },  
     editAction: async (req, res) => {
         
     }
