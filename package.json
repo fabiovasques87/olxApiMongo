@@ -20,6 +20,7 @@
     "jimp": "^0.22.5",
     "mongoose": "^6.10.0",
     "nodemon": "^2.0.20",
+    "react-slideshow-image": "^4.2.1",
     "uuid": "^9.0.0"
   }
 }

@@ -60,7 +60,8 @@
   "price": 350,
   "priceNegotiable": false,
   "description": "Relogio",
-  "__v": 0
+  "__v": 0,
+  "views": 5
 },{
   "_id": {
     "$oid": "6406e5b465dc2081f2686ee9"
@@ -77,9 +78,11 @@
       "$numberLong": "1678173620014"
     }
   },
-  "title": "RELÓGIO",
+  "title": "Notebook",
   "price": 2500,
   "priceNegotiable": false,
   "description": "Notebook",
-  "__v": 0
+  "__v": 0,
+  "views": 0,
+  "idUser": "63f9bf67ffca9bccfc450ab1"
 }]

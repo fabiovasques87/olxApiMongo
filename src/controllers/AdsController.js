@@ -4,7 +4,7 @@ const {v4: uuid} = require('uuid');
 const jimp = require('jimp');
 
 const Category = require('../models/Category');
-const User = require('../models/Category');
+const User = require('../models/User');
 const Ad = require ('../models/Ad');
 const StateModel = require ('../models/State');
 
@@ -68,7 +68,7 @@ module.exports = {
         newAd.price = price;
         newAd.priceNegotiable = (priceneg == 'true') ? true : false;
         newAd.description = desc;
-        newAd.viwes = 0;
+        newAd.views = 0;
 
         //lidando com as imgens...
         //se mandou alguma imagem...
@@ -176,6 +176,11 @@ module.exports = {
             res.json({erro:'Sem produto'});
             return; //return para finalizar a execucao
         }
+        if(id.length < 12){
+        
+            res.json({error: 'ID Inválido'});
+            return;
+        }
         const ad = await Ad.findById(id);
         //se não encontrou nada...
         if(!ad){
@@ -183,7 +188,7 @@ module.exports = {
             return;
         }
         //contador de visitas no determinado produto
-        ad.viwes++;
+        ad.views++;
         await ad.save;
 
         //pegar as imagens do determinado produto...
@@ -203,16 +208,17 @@ module.exports = {
             title: ad.title,
             price: ad.price,
             priceNegotiable: ad.priceNegotiable,
-            description:ad.description,
+            description: ad.description,
             dateCreated: ad.dateCreated,
             views: ad.views,
             images,
             category,
-            userInfo: {
-                name: userInfo.name,
-                email: userInfo.email
-            },
-            stateName: stateInfo.name
+            userInfo,
+            // : {
+            //     // name: userInfo.name,
+            //     // email: userInfo.email
+            // },
+            StateModel
 
         });
     },  
