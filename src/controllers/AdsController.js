@@ -64,7 +64,7 @@ module.exports = {
         newAd.state = User.state;
         newAd.dateCreated = new Date();
         newAd.title = title;
-        newAd.Category = cat;
+        newAd.category = cat;
         newAd.price = price;
         newAd.priceNegotiable = (priceneg == 'true') ? true : false;
         newAd.description = desc;
