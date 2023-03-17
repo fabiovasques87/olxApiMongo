@@ -14,7 +14,7 @@ const addImage = async (Buffer) =>{
     let tmpImg =    await jimp.read(Buffer);//ler o buffer da imagem com o jimp, tmpImg: imagem temporaria
 
     //de posse da imagem...
-    tmpImg.cover(500, 500).quality(80).write(`./public/media/${newName}`);  //redimenciona a imagem,ajusta qualidade e salva ela no public
+    tmpImg.cover(500, 500).quality(80).write(`http://192.168.0.109/public/media/${newName}`);  //redimenciona a imagem,ajusta qualidade e salva ela no public
     return newName;
 }
 
@@ -60,8 +60,8 @@ module.exports = {
         //fazer a adição do anuncio no banco
         const newAd = new Ad();
         newAd.status = true;
-        newAd.idUser = User._id;
-        newAd.state = User.state;
+        newAd.idUser = user._id;
+        newAd.state = user.state;
         newAd.dateCreated = new Date();
         newAd.title = title;
         newAd.category = cat;
