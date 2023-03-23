@@ -17,7 +17,7 @@ module.exports = {
     },
     info: async (req, res) => {
 
-        let token = req.body.token;
+        let token = req.query.token; //pega o token da requisissao
 
         const user = await User.findOne({token});
         // const user = await User.findOne({});
